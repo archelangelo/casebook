@@ -15,7 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+import core
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('account_activation_sent/', core.views.account_activation_sent, name='account_activation_sent'),
+    path('activate/<token>/', core.views.activate, name='activate'),
 ]
