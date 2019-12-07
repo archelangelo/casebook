@@ -1,6 +1,7 @@
 from django.contrib.sites.shortcuts import get_current_site
 from django.contrib.auth import login
 from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.utils.encoding import force_bytes, force_text
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
@@ -50,3 +51,7 @@ def activate(request, uidb64, token):
 
 def account_activation_sent(request):
     return render(request, 'signup/account_activation_sent.html')
+
+@login_required
+def view_profile(request):
+    return render(request, 'account/profile.html')
