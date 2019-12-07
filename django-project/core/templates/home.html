@@ -1,0 +1,16 @@
+<h1>casebook</h1>
+{% if user.is_authenticated %}
+<div>
+  Hello <a href="{% url 'user_profile' %}">{{ user.username }}</a>
+  <p>
+    <a href="{% url 'logout' %}">Log out</a>
+  </p>
+</div>
+{% else %}
+<div>
+  <a href="{% url 'signup' %}">Sign me up!</a>
+</div>
+<div>
+  <a href="{% url 'login' %}">Log in</a>
+</div>
+{% endif %}
